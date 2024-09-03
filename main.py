@@ -9,7 +9,14 @@ st.set_page_config(
 )
 
 st.title("Autobiography & Portfolio")
-st.image("796.jpg", width=200)  # Replace with your image path
+
+# Load image with error handling
+try:
+    st.image("796.jpg", width=200)  # Ensure this path is correct or use an online URL
+except Exception as e:
+    st.warning("Could not load image. Please check the file path.")
+    st.error(f"Error: {e}")
+
 st.markdown("""
 ### Welcome to my journey as a 4th-year IT student!
 I'm currently studying at Cebu Institute of Technology-University, where I have developed strong skills in programming languages and web development. Below is a summary of my journey, skills, and some of my favorite work.
@@ -18,11 +25,11 @@ I'm currently studying at Cebu Institute of Technology-University, where I have 
 # About Me Section
 st.header("About Me")
 st.markdown("""
-I am an IT student with interest in software development and web technologies. Throughout my academic journey, I have gained knowledge in various programming languages including C, C++, Java, Python, HTML, and JavaScript.
+I am an IT student with an interest in software development and web technologies. Throughout my academic journey, I have gained knowledge in various programming languages including C, C++, Java, Python, HTML, and JavaScript.
 
-What got me interested in this field is that whenever I look at something in my computer, I always try to figure out how these things work. I find it amusing that so many things can fit in just a very compact device. 
+What got me interested in this field is that whenever I look at something on my computer, I always try to figure out how these things work. I find it amusing that so many things can fit in just a very compact device.
 
-Talking about my personal life, I'm into motorcycles, cars, basketball, and pretty much everything related to that. I am 184cm, so it's pretty much a given that I have to play sports. Filipino parents, ehem...  
+Talking about my personal life, I'm into motorcycles, cars, basketball, and pretty much everything related to that. I am 184 cm, so it's pretty much a given that I have to play sports. Filipino parents, ehem...  
 """)
 
 # Columns for Education and Career
@@ -52,15 +59,23 @@ tab1, tab2 = st.tabs(["Project 1", "Project 2"])
 
 with tab1:
     st.subheader("Project 1: [Web Development Project]")
-    st.image("project1.jpg", width=500)
+    try:
+        st.image("project1.jpg", width=500)  # Ensure the image path is correct
+    except Exception as e:
+        st.warning("Could not load project image. Please check the file path.")
+        st.error(f"Error: {e}")
     st.markdown("A fully responsive website built using HTML, CSS, and JavaScript.")
 
 with tab2:
     st.subheader("Project 2: [NLP Project]")
-    st.image("project2.jpg", width=500)
-    st.markdown("A streamlit application developed in Python for searching recommendations for recipes.")
+    try:
+        st.image("project2.jpg", width=500)  # Ensure the image path is correct
+    except Exception as e:
+        st.warning("Could not load project image. Please check the file path.")
+        st.error(f"Error: {e}")
+    st.markdown("A Streamlit application developed in Python for searching recommendations for recipes.")
 
-
+# Skills Section with Streamlit Bar Chart
 st.header("Skills Proficiency")
 st.markdown("A visual representation of my proficiency in various skills:")
 
@@ -78,11 +93,12 @@ skills_df = skills_df.set_index("Skill")
 
 st.bar_chart(skills_df)
 
+# Favorite Song Section
 st.header("My Favorite Song")
 st.markdown("""
-Listening to music is one of my favorite whenever I'm doing something, whether it be working out, studying, or just starting blankly. I'm into a pretty diverse genre of songs such as pop, k-pop, j-pop, classical, jazz, r&b, k r&b.
+Listening to music is one of my favorite things to do whenever I'm working out, studying, or just relaxing. I'm into a pretty diverse genre of songs such as pop, k-pop, j-pop, classical, jazz, R&B, and K-R&B.
 
-This is one of my favorite songs right now. I like the songs vibe, it makes me feel groovy.
+This is one of my favorite songs right now. I love the vibe; it makes me feel groovy.
 """)
 
 st.video("https://www.youtube.com/watch?v=-s7TCuCpB5c")
