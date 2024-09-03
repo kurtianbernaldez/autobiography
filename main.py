@@ -12,7 +12,7 @@ st.title("Autobiography & Portfolio")
 
 # Load image with error handling
 try:
-    st.image("796.jpg", width=200)  # Ensure this path is correct or use an online URL
+    st.image("796.JPG", width=200)  # Ensure this path is correct or use an online URL
 except Exception as e:
     st.warning("Could not load image. Please check the file path.")
     st.error(f"Error: {e}")
